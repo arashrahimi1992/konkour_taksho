@@ -1,0 +1,91 @@
+<h4 class="mt-2"><span class="badge badge-info">لیست محصولات </span></h4>
+<div class="row">
+
+    <div class="col-md-12">
+
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+           
+                <th scope="col">نام محصول</th>
+                <th scope="col">عنوان کوتاه محصول</th>
+                <th scope="col">تاریخ  </th>
+                <th scope="col">قیمت</th>
+                <th scope="col">تعداد</th>
+                <th scope="col">میزان تخفیف</th>
+                <th scope="col">موجودی</th>
+                <th scope="col">دسته</th>
+                <th scope="col">ویرایش</th>
+                <th scope="col">حذف</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                <% if(products.length > 0) { %> 
+                    
+                    <% for(let product of products) { %>
+                        <tr>
+                            <th scope="row">-</th>
+               
+                            <td><%= product.productName %></td>
+                            <td><%= product.productLittleTitle %></td>
+                            <td> <%= formatDate(product.productCreateAt) %></td>
+                            <td><%= product.productPrice %></td>
+                            <td><%= product.productCount %></td>
+                            <td><%= product.productOffer %></td>
+                           
+                            <td><% if(product.productAvailable == "0"){ %>
+                                    <span class="badge badge-danger">ناموجود</span>
+                                 <% } %>
+                                 <% if(product.productAvailable == "1"){ %>
+                                    <span class="badge badge-success">موجود</span>
+                                  <% } %>
+                            </td>    
+
+                            <td>
+                            
+                            
+                                <% if(product.productCategory == 1){ %>
+                                  <span >ریاضی</span>
+                               <% } %>
+                               <% if(product.productCategory == 2){ %>
+                                  <span >تجربی</span>
+                                <% } %>
+                                <%  if(product.productCategory == 3){ %>
+                                  <span >ریاضی و تجربی</span>
+                                <% } %>
+                                <%  if(product.productCategory == 4){ %>
+                                  <span >انسانی</span>
+                                <% } %>
+                                <%  if(product.productCategory == 5){ %>
+                                  <span >همه</span>
+                                <% } %>
+                              
+                              
+                              </td>
+                     
+
+
+                            <td>
+                                <a href="/dashboard/editProduct/<%= product._id %>" class="btn btn-sm btn-info">ویرایش</a>
+                            </td>
+                            <td>
+                                <a href="/dashboard/deleteProduct/<%= product._id %>" class="btn btn-sm btn-danger">حذف</a>
+                            </td>
+
+
+                   
+
+                  
+                          </tr>
+                        
+                        <% } %>
+
+                        <% } %>
+                
+          
+             
+            </tbody>
+          </table>
+    </div>

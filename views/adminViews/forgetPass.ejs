@@ -1,0 +1,27 @@
+<form
+    id="loginForm"
+    class="form-signin"
+    action="/admin/forget-password"
+    method="POST"
+>
+<h2 class=" rtl mt-2 mb-4"><span class="badge badge-secondary w-100"> فراموشی رمز عبور</span></h2>
+    
+    <%- include("../includes/forgetPass.ejs") %>
+    <br/>
+    <br/>
+    <label for="inputEmail" class="sr-only">آدرس ایمیل</label>
+    <input
+        type="email"
+        name="adminEmail"
+        id="inputEmail"
+        class="form-control mb-2"
+        placeholder="آدرس ایمیل"
+        required
+        autofocus
+    />
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+       بازیابی رمز عبور
+    </button>
+    
+</form>
+

@@ -1,0 +1,119 @@
+<nav
+    id="sidebarMenu"
+    class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+>
+    <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+
+            <li class="nav-item mb-2">
+                <a
+                    class="nav-link d-flex align-items-center 
+                    <%= path === "/p" ? 'text-primary' : '' %>"
+                    href="/taksho"
+                    >
+                        <span class="fa fa-home fa-lg mr-3"></span>
+                    داشبورد
+                    </a
+                >
+            </li>
+            <li><hr/></li>
+            <li class="nav-item mb-2">
+                <a
+                    class="nav-link d-flex align-items-center 
+                    <%= path === "/dashboard" ? 'text-primary' : '' %>"
+                    href="/dashboard"
+                    >
+                        <span class="fa fa-pencil fa-lg mr-3"></span>
+                 مشاهده پست ها
+                    </a
+                >
+            </li>
+
+            <li class="nav-item mb-2">
+                <a
+                    class="nav-link d-flex align-items-center
+                    <%= path === "/dashboard/add-post" ? 'text-primary' : '' %>"
+                    href="/dashboard/add-post"
+                    >
+                        <span class="fa fa-plus mr-3"></span>
+                        ساخت پست جدید
+                    </a
+                >
+            </li>
+            <li><hr/></li>
+
+            <li class="nav-item mb-2">
+                <a class="nav-link d-flex align-items-center  " href="/dashboard/getAdmin" >
+                        <span class=" fa fa-cog mr-3"></span>
+                   مدیریت بخش ادمین
+                    </a>
+            </li>
+            <li class="nav-item mb-2">
+                <a class="nav-link d-flex align-items-center  " href="/dashboard/register" >
+                        <span class=" fa fa-plus mr-3"></span>
+                  ثبت ادمین جدید
+                    </a>
+            </li>
+
+            <li><hr/></li>
+
+            <li class="nav-item mb-2">
+                <a class="nav-link d-flex align-items-center  " href="/dashboard/getConsultant" >
+                        <span class="fa fa-users mr-3"></span>
+            مشاهده مشاوران
+                    </a>
+            </li>
+
+
+            <li class="nav-item mb-2">
+                <a class="nav-link d-flex align-items-center  " href="/dashboard/consultantRegister" >
+                        <span class="fa fa-plus mr-3"></span>
+          ثبت مشاور جدید
+                    </a>
+            </li>
+            <li><hr/>
+            
+            </li>
+
+            <li class="nav-item mb-2">
+                <a class="nav-link d-flex align-items-center  " href="/dashboard/getConsultant" >
+                        <span class="fa fa-user-o mr-3"></span>
+            مشاهده اعضای سایت
+                    </a>
+            </li>
+
+
+            <li class="nav-item mb-2">
+                <a class="nav-link d-flex align-items-center  " href="/dashboard/consultantRegister" >
+                        <span class="fa fa-plus mr-3"></span>
+          ثبت مشاور جدید
+                    </a>
+            </li>
+         
+            <li><hr/>
+            
+            </li>
+
+            <li class="nav-item mb-2">
+                <a class="nav-link d-flex align-items-center  " href="/dashboard/getProduct" >
+                        <span class="fa fa-shopping-basket mr-3"></span>
+       مشاهده محصولات سایت
+                    </a>
+            </li>
+
+
+            <li class="nav-item mb-2">
+                <a class="nav-link d-flex align-items-center  " href="/dashboard/addProduct" >
+                        <span class="fa fa-plus mr-3"></span>
+         ثبت محصول در سایت
+                    </a>
+            </li>
+         
+        </ul>
+
+       
+        <ul class="nav flex-column mb-2">
+            
+        </ul>
+    </div>
+</nav>

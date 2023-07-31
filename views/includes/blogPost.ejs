@@ -1,0 +1,50 @@
+<% if(posts.length > 0) { %> <% for(let post of posts) { %>
+<!-- <div class="card mt-4 mb-4">
+    <img
+        class="card-img-top"
+        src="http://localhost:3000/uploads/thumbnails/<%= post.thumbnail %>"
+        alt="Card image cap"
+    />
+    <div class="card-body">
+        <h2 class="card-title"><%= post.title %></h2>
+        <p class="card-text text-justify"><%-truncate(post.body,400) %></p>
+        <a href="/post/<%= post._id %>" class="btn btn-primary">بیشتر ...</a>
+    </div>
+    <div class="card-footer text-muted text-small">
+       ارسال شده در تاریخ : <%=formatDate(post.createdAt) %>
+    </div>
+</div> -->
+<!-- Card -->
+<div class="card m-3  hoverable ">
+
+
+    <div class="view overlay">
+        <img src="http://localhost:3000/uploads/thumbnails/<%= post.thumbnail %>"  class="img-fluid " alt="smaple image">
+        <div class="mask flex-center rgba-purple-slight">
+            <p class="white-text"></p>
+        </div>
+    </div>
+    <!-- Card image -->
+    <!-- <img class="card-img-top" src="http://localhost:3000/uploads/thumbnails/<%= post.thumbnail %>" alt="Card image cap"> -->
+  
+    <!-- Card content -->
+    <div class="card-body">
+  
+      <!-- Title -->
+      <h4 class="card-title"><a><%= post.title %></a></h4>
+      <!-- Text -->
+      <p class="card-text"><%-truncate(post.body,400) %></p>
+      <!-- Button -->
+      <a href="/post/<%= post._id %>" class="btn btn-primary">بیشتر ...</a>
+  
+    </div>
+    <div class="card-footer text-muted text-small">
+        ارسال شده در تاریخ : <%=formatDate(post.createdAt) %>
+     </div>
+  </div>
+  <!-- Card -->
+<% } %> <% } else {%>
+<div class="m-5 text-center">
+    <h1>هیچ پستی در پایگاه داده نیست</h1>
+</div>
+<% } %>

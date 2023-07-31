@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>گروه آموزشی کنکور تَکشو</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+
+  <link href="/icon.ico" rel="icon">
+  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+ 
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/bootstrap-rtl.css" />
+  <link rel="stylesheet" href="/css/font-awesome.css" />
+
+  <!-- Vendor CSS Files -->
+  <link href="/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/css/flexorstyle.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Flexor - v4.3.0
+  * Template URL: https://bootstrapmade.com/flexor-free-multipurpose-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="rtl" >
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark  secondary-color
+
+">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">کنکور تَکشو</a>
+  
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/">صفحه اصلی  
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">مقالات کنکوری</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">محصولات</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/loginAdmin">پادکست</a>
+        </li>
+  
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">مشاوره و برنامه ریزی</a>
+          <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">مشاوره گروه ریاضی</a>
+            <a class="dropdown-item" href="#">مشاوره گروه تجربی</a>
+            <a class="dropdown-item" href="#">مشاوره گروه انسانی</a>
+          </div>
+        </li>
+
+         <!-- Dropdown -->
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">تیم ما</a>
+          <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">مشاورین کنکور تَکشو</a>
+            <a class="dropdown-item" href="#">درباره ما</a>
+            <a class="dropdown-item" href="/contact">تماس با ما</a>
+          </div>
+        </li>
+  
+      </ul>
+      <!-- Links -->
+  <%- include("./search.ejs") %>
+<!---- search -->
+    </div>
+    <!-- Collapsible content -->
+  
+  </nav>
+  <!--/.Navbar-->
+    <br/>
+    <div class="row">
+        <div class="col-md-3">
+    
+            
+        </div>
+        <div class="col-md-6">
+            <!-- Default form register -->
+    <form class="text-center border border-light p-5" action="/user/userRegister" method="POST">
+    
+
+        <p class="h4 mb-4">ثبت نام در سایت </p>
+    
+        <div class="form-row mb-4">
+            <div class="col">
+                <!-- First name -->
+                <input type="text" id="userName" name="userName" class="form-control" placeholder="*نام">
+            </div>
+            <div class="col">
+                <!-- Last name -->
+                <input type="text"  id="userLastName" name="userLastName" class="form-control" placeholder="*نام خانوادگی">
+            </div>
+        </div>
+    
+        <!-- E-mail -->
+        <input type="email" id="userEmail"  name="userEmail" class="form-control mb-4" placeholder="*ایمیل ">
+    
+        <!-- Password -->
+        <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="*کلمه ی عبور" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4 ">
+             *نباید کمتر از 6 کاراکتر باشد
+        </small>
+    
+        <!-- Password -->
+        <input type="password" id="userConfirmPassword" name="userConfirmPassword" class="form-control" placeholder="*تکرار کلمه ی عبور " aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    
+    
+        <!-- Phone number -->
+        <input type="text" id="userPhone" name="userPhone" class="form-control mt-3" placeholder="شماره تلفن" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4 ">
+            *اختیاری 
+        </small>
+    
+        <!-- Sign up button -->
+        <button class="btn btn-info my-4 btn-block" type="submit">ثبت نام</button>
+    
+        <hr>
+    
+        <!-- Terms of service -->
+         <!-- Register -->
+         <p> قبلا ثبت نام کردی؟ پس 
+            <a href="/user/userLogin">ورود</a>
+            رو بزن
+        </p>
+    
+    </form>
+    <!-- Default form register -->
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    
+    
+    <br/>
+    
+
+      <!-- Vendor JS Files -->
+  <script src="/vendor/aos/aos.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/vendor/php-email-form/validate.js"></script>
+  <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/flexormain.js"></script>
+
+
+
+
+
+<script>
+function onSubmitForm(){
+    const email = document.querySelector("#userEmail").value;
+    const password = document.querySelector("#userPassword").value;
+    const name = document.querySelector("#userName").value;
+    const lastname = document.querySelector("#userLastName").value;
+    const phone = document.querySelector("#userPhone").value;
+    const checked = document.querySelector("#checkbox").checked;
+
+
+    if(!email || !password || !name || !lastname|| !phone || !checked){
+        
+        alert("پر کردن همه فیلد ها اجباریست")
+        return false;
+    }
+
+    const user = {
+
+        userName:name,
+        userLastName:lastname,
+        userPhone:phone,
+        userPassword:password,
+        userEmail:email,
+
+    }
+
+    axios.post("http://localhost:3000/user/register",user)
+    .then(({data,headers })=>{
+        console.log(headers);
+        localStorage.setItem("token",headers['x-auth-token']);
+        alert("شما با موفقیت ثبت نام شدید")
+    }).catch(err=>{
+        alert(err.response.data.message)
+
+    })
+
+    return false;
+}
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

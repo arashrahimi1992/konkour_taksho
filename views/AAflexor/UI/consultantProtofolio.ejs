@@ -1,0 +1,147 @@
+
+  <%- include("../includes/header.ejs") %>
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/taksho/consultant">تیم ما</a></li>
+          <li>مشاورین کنکور تَکشو</li>
+          <li>جزئیات مشاور</li>
+        </ol>
+        <h2>جزئیات مشخصات مشاور</h2>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-2">
+          
+            <div id="carouselExampleIndicators" class="carousel slide  " data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="/img/Untitled-4.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+               <img src="/img/Untitled-5.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="/img/Untitled-6.gif" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            
+          </div>
+
+          <div class="col-lg-5">
+            <div class="portfolio-details-slider swiper-container">
+              <div class="swiper-wrapper align-items-center">
+
+                <div >
+                  <img src="/uploads/thumbnails/<%= consultant.consultantthumbnail %>" alt="">
+                </div>
+
+              
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="portfolio-info">
+              <h3><%= consultant.consultantName %> <%= consultant.consultantLastName %></h3>
+              <ul>
+                <li><strong>نام</strong>: <%= consultant.consultantName %></li>
+                <li><strong>نام خانوادگی</strong>: <%= consultant.consultantLastName %></li>
+                <li><strong>رتبه کنکور</strong>: <%= consultant.consultantRank %></li>
+                <li><strong>رشته و دانشگاه</strong>: <%= consultant.consultantUniversity %> </li>
+                <li><strong>رشته دبیرستان</strong>:  
+
+                     <% if(consultant.consultantField == 1){ %>
+                    <span class="badge badge-danger">ریاضی</span>
+                 <% } %>
+                 <% if(consultant.consultantField == 2){ %>
+                    <span class="badge badge-success">تجربی</span>
+                  <% } %>
+                  <%  if(consultant.consultantField == 3){ %>
+                    <span class="badge badge-warning">انسانی</span>
+                  <% } %>
+
+
+                </li>
+                
+                <li><strong>گروه های مشاوره</strong>:<% if(consultant.consultantCategory == 1){ %>
+                    <span >فقط مشاوره برای گروه ریاضی </span>
+                 <% } %>
+                 <% if(consultant.consultantCategory == 2){ %>
+                    <span >فقط مشاوره برای گروه تجربی </span>
+                  <% } %>
+                  <%  if(consultant.consultantCategory == 12){ %>
+                    <span >مشاوره گروه ریاضی و تجربی</span>
+                  <% } %>
+                  <%  if(consultant.consultantCategory == 3){ %>
+                    <span >فقط مشاوره گروه انسانی </span>
+                  <% } %>
+                  <%  if(consultant.consultantCategory == 5){ %>
+                    <span >مشاوره همه رشته ها</span>
+                  <% } %> </li>
+
+                <li><strong>
+                
+                  <% if(consultant.consultantZone == 1){ %>
+                    <span >سهمیه کنکور:منطقه 1 </span>
+                 <% } %>
+                 <% if(consultant.consultantZone == 2){ %>
+                    <span >سهمیه کنکور :منطقه 2</span>
+                  <% } %>
+                  <%  if(consultant.consultantZone == 3){ %>
+                    <span >سهمیه کنکور :منطقه 3</span>
+                  <% } %>
+                  <%  if(consultant.consultantZone == 5){ %>
+                    <span >سهمیه کنکور:5 درصد ایثارگران </span>
+                  <% } %>
+                  <%  if(consultant.consultantZone== 25){ %>
+                    <span >سهمیه کنکور:25 درصد شهدا و جانبازان</span>
+                  <% } %>
+                
+                
+                </li>
+
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>سخن مشاور</h2>
+              <p>
+                <%= consultant.consultantContent %> 
+              </p>
+            </div>
+          </div>
+
+
+      
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <%- include("../includes/footer.ejs") %>

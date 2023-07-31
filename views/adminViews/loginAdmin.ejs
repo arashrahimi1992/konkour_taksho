@@ -1,0 +1,49 @@
+<br/>
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+            
+<!-- Default form login -->
+<form class="text-center p-5" action="/admin/loginAdmin" method="POST">
+    <%- include("../includes/loginMessages.ejs") %>
+    <p class="h4 mb-4">ورود به بخش مدیریت</p>
+
+    <!-- Email -->
+    <input type="email" id="adminEmail" name="adminEmail" class="form-control mb-4" placeholder="ایمیل خود را وارد کنید">
+
+    <!-- Password -->
+    <input type="password" id="adminPassword" name="adminPassword" class="form-control mb-4" placeholder="کلمه عبور خود را وارد کنید">
+
+    <div class="form-group">
+        <div
+            class="g-recaptcha"
+            data-sitekey="6Lcs0Q0aAAAAACw0Kznf2C8aNmrOi0PcrB5rgobS"
+        ></div>
+    </div>
+
+        <!-- Remember me -->
+        <div class="custom-control custom-checkbox d-flex justify-content-start">
+            <input type="checkbox" class="custom-control-input" name="rememberMe" id="rememberMe">
+            <label class="custom-control-label" for="rememberMe">مرا به خاطر بسپار</label>
+        </div>
+
+
+        <a href="/admin/forget-password">فراموشی رمز عبور</a>
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">ورود</button>
+
+
+
+
+
+
+    
+</form>
+<!-- Default form login -->
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+
+<br/>

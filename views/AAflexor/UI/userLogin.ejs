@@ -1,0 +1,74 @@
+<%- include("../includes/header.ejs") %>
+
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="/taksho/login">ورود</a></li>
+            <li>ورود به ناحیه کاربری</li>
+          </ol>
+          <h2> ورود کاربر </h2>
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+
+	<div class="row">
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-6">
+
+<!-- Default form login -->
+<form class="text-center border border-light p-5" action="/taksho/login" method="POST">
+
+    <%- include("../../includes/loginMessages.ejs") %>
+    
+    <p class="h4 mb-4"> ورود به بخش کاربران</p>
+
+    <!-- Email -->
+    <input type="email" id="userEmail" name="userEmail" class="form-control mb-4" placeholder="ایمیل خود را وارد کنید">
+
+    <!-- Password -->
+    <input type="password" id="userPassword" name="userPassword" class="form-control mb-4" placeholder="کلمه عبور را وارد کنید">
+
+
+    <div class="form-group">
+        <div
+            class="g-recaptcha"
+            data-sitekey="6Lcs0Q0aAAAAACw0Kznf2C8aNmrOi0PcrB5rgobS"
+        ></div>
+    </div>
+
+
+        <!-- Remember me -->
+    <div class="custom-control custom-checkbox d-flex justify-content-start">
+            <input type="checkbox" class="custom-control-input" id="rememberMe">
+            <label class="custom-control-label" for="rememberMe">مرا به خاطر بسپار</label>
+    </div>
+
+
+        <a href="/user/forget-password">فراموشی رمز عبور</a>
+    <!-- Sign in button -->
+    <button class="btn btn-secondary btn-block my-4" type="submit">ورود</button>
+
+
+
+    <!-- Register -->
+    <p>عضو نیستی؟ پس
+        <a href="/taksho/register">ثبت نام</a>
+        کن
+    </p>
+
+
+
+    
+</form>
+<!-- Default form login -->
+		</div>
+		<div class="col-md-3">
+		</div>
+	</div>
+
+</main>
+<%- include('../includes/footer.ejs') %>

@@ -1,0 +1,128 @@
+
+  <%- include("../includes/header.ejs") %>
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/taksho/products">محصولات</a></li>
+          <li>محصولات</li>
+          <li>جزئیات محصول</li>
+        </ol>
+        <h2>جزئیات محصول</h2>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-5">
+
+         
+
+
+          <div class="col-lg-5">
+            <div class="portfolio-details-slider swiper-container">
+              <div class="swiper-wrapper align-items-center">
+
+
+                <div >
+                  <img src="/uploads/thumbnails/<%= product.productthumbnail %>" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="portfolio-info">
+              <h3><%= product.productName %></h3>
+              <ul>
+                <li><strong>توضیح کوتاه محصول</strong>: <%= product.productLittleTitle %></li>
+                <li><strong>قیمت </strong>: <%= product.productPrice %> تومان</li>
+            
+                <li>    <% if(product.productAvailable == "0"){ %>
+                    <p class="badge badge-secondary" >محصول موجود نیست</p>
+                 <% } %>
+
+                 <% if(product.productAvailable == "1"){ %>
+                    <p class="badge badge-success" > محصول موجوداست </p>
+                  <% } %>
+          
+           </li>
+                <li><strong>دسته محصول</strong>:
+                
+                  <% if(product.productCategory == "1"){ %>
+                    <p class="badge badge-secondary" >غیره</p>
+                 <% } %>
+
+                 <% if(product.productCategory == "2"){ %>
+                    <p class="badge badge-success" >آموزشی</p>
+                  <% } %>
+                  <% if(product.productCategory == "3"){ %>
+                    <p class="badge badge-secondary" >خبری</p>
+                 <% } %>
+
+                 <% if(product.productCategory == "4"){ %>
+                    <p class="badge badge-success" > انگیزشی </p>
+                  <% } %>
+                  <% if(product.productCategory == "5"){ %>
+                    <p class="badge badge-success" >برنامه ریزی </p>
+                  <% } %>
+
+
+                </li>
+                <li><strong>توضیحات</strong>:<%= product.productContent %></li>
+           
+                
+              
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h3></h3>
+              <p>
+
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-2">
+
+            <div id="carouselExampleIndicators" class="carousel slide  myCarousel " data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="/img/Untitled-1.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="/img/Untitled-2.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="/img/Untitled-3.gif" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <%- include("../includes/footer.ejs") %>

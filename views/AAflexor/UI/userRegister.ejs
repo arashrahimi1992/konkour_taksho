@@ -1,0 +1,80 @@
+<%- include("../includes/header.ejs") %>
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="/taksho/posts">ثبت نام</a></li>
+            <li> ثبت نام در سایت</li>
+          </ol>
+          <h2> ثبت نام </h2>
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+
+      <div class="row">
+        <div class="col-md-3">
+    
+            
+        </div>
+        <div class="col-md-6">
+            <!-- Default form register -->
+    <form class="text-center border border-light p-5" action="/taksho/register" method="POST">
+    
+        <%- include("../../includes/validationErrors.ejs") %>
+        <p class="h4 mb-4">ثبت نام در سایت </p>
+    
+        <div class="form-row mb-4">
+            <div class="col">
+                <!-- First name -->
+                <input type="text" id="userName" name="userName" class="form-control" placeholder="*نام">
+            </div>
+            <div class="col">
+                <!-- Last name -->
+                <input type="text"  id="userLastName" name="userLastName" class="form-control" placeholder="*نام خانوادگی">
+            </div>
+        </div>
+    
+        <!-- E-mail -->
+        <input type="email" id="userEmail"  name="userEmail" class="form-control mb-4" placeholder="*ایمیل ">
+    
+        <!-- Password -->
+        <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="*کلمه ی عبور" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4 ">
+             *نباید کمتر از 6 کاراکتر باشد
+        </small>
+    
+        <!-- Password -->
+        <input type="password" id="userConfirmPassword" name="userConfirmPassword" class="form-control" placeholder="*تکرار کلمه ی عبور " aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    
+    
+        <!-- Phone number -->
+        <input type="text" id="userPhone" name="userPhone" class="form-control mt-3" placeholder="شماره تلفن" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4 ">
+            *اختیاری 
+        </small>
+    
+        <!-- Sign up button -->
+        <button class="btn btn-secondary my-4 btn-block" type="submit">ثبت نام</button>
+    
+        <hr>
+    
+        <!-- Terms of service -->
+         <!-- Register -->
+         <p> قبلا ثبت نام کردی؟ پس 
+            <a href="/taksho/login">ورود</a>
+            رو بزن
+        </p>
+    
+    </form>
+    <!-- Default form register -->
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+
+</main>
+
+
+<%- include('../includes/footer.ejs') %>

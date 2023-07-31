@@ -1,0 +1,116 @@
+<h4 class="mt-2"><span class="badge badge-info">لیست مشاوران </span></h4>
+<div class="row">
+
+    <div class="col-md-12">
+
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+           
+                <th scope="col">نام</th>
+                <th scope="col">نام خانوادگی</th>
+                <th scope="col">شماره تلفن</th>
+                <th scope="col">ایمیل</th>
+                <th scope="col">رتبه کنکور</th>
+                <th scope="col">دانشگاه محل تحصیل</th>
+                <th scope="col">سهمیه کنکور</th>
+                <th scope="col">سال کنکور</th>
+                <th scope="col">رشته دبیرستان</th>
+                <th scope="col">حوزه ی مشاوره</th>
+                <th scope="col">ویرایش</th>
+                <th scope="col">حذف</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                <% if(consultants.length > 0) { %> 
+                    
+                    <% for(let consultant of consultants) { %>
+                        <tr>
+                            <th scope="row">-</th>
+                         
+                            <td><%= consultant.consultantName %></td>
+                            <td><%= consultant.consultantLastName %></td>
+                            <td><%= consultant.consultantPhone %></td>
+                            <td><%= consultant.consultantEmail %></td>
+                            <td><%= consultant.consultantRank %></td>
+                            <td><%= consultant.consultantUniversity %></td>
+                            <td>
+                                    
+                              <% if(consultant.consultantZone == 1){ %>
+                                <span class="badge badge-danger">منطقه 1</span>
+                             <% } %>
+                             <% if(consultant.consultantZone == 2){ %>
+                                <span class="badge badge-success">منطقه 2</span>
+                              <% } %>
+                              <%  if(consultant.consultantZone == 3){ %>
+                                <span class="badge badge-warning">منطقه 3</span>
+                              <% } %>
+                              <%  if(consultant.consultantZone == 5){ %>
+                                <span class="badge badge-secondary">5% ایثارگران</span>
+                              <% } %>
+                              <%  if(consultant.consultantZone == 25){ %>
+                                <span class="badge badge-info">25% شهدا و جانبازان</span>
+                              <% } %>
+                            
+                            
+                            
+                            
+                            </td>
+                            <td><%= consultant.consultantYear %></td>
+                            <td>
+                            
+                              <% if(consultant.consultantField == 1){ %>
+                                <span class="badge badge-danger">ریاضی</span>
+                             <% } %>
+                             <% if(consultant.consultantField == 2){ %>
+                                <span class="badge badge-success">تجربی</span>
+                              <% } %>
+                              <%  if(consultant.consultantField == 3){ %>
+                                <span class="badge badge-warning">انسانی</span>
+                              <% } %>
+                    
+                            
+                            
+                            </td>
+                            <td>
+                            
+                            
+                              <% if(consultant.consultantCategory == 1){ %>
+                                <span class="badge badge-danger">ریاضی</span>
+                             <% } %>
+                             <% if(consultant.consultantCategory == 2){ %>
+                                <span class="badge badge-success">تجربی</span>
+                              <% } %>
+                              <%  if(consultant.consultantCategory == 12){ %>
+                                <span class="badge badge-secondary">ریاضی و تجربی</span>
+                              <% } %>
+                              <%  if(consultant.consultantCategory == 3){ %>
+                                <span class="badge badge-warning">انسانی</span>
+                              <% } %>
+                              <%  if(consultant.consultantCategory == 5){ %>
+                                <span class="badge badge-info">همه</span>
+                              <% } %>
+                            
+                            
+                            </td>
+
+                        
+                            <td>
+                                <a href="/dashboard/editConsultant/<%= consultant._id %>" class="btn btn-sm btn-info">ویرایش</a>
+                            </td>
+                            <td>
+                                <a href="/dashboard/deleteConsultant/<%= consultant._id %>" class="btn btn-sm btn-danger">حذف</a>
+                            </td>
+                          </tr>
+                        
+                        <% } %>
+
+                        <% } %>
+                
+          
+             
+            </tbody>
+          </table>
+    </div>

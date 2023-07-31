@@ -1,0 +1,130 @@
+<h3 class="mt-2 text-center">ویرایش پست</h3>
+<div class="w-50 mx-auto">
+    <%- include("../includes/validationErrors.ejs") %>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+    <form action="/dashboard/edit-post/<%= post._id %>" class="w-50" method="POST" enctype="multipart/form-data">
+
+        <label for="selectedThumbnail">عکس بند انگشتی</label>
+        <div class="input-group mb-3">
+            <input
+                type="file"
+                class="custom-file-input"
+                name="thumbnail"
+                id="selectedThumbnail"
+                aria-describedby="inputGroupFileAddon03"
+            />
+            <label
+                id="thumbStatus"
+                class="custom-file-label"
+                for="inputGroupFile03"
+                >عکس مورد نظر را انتخاب کنید</label
+            >
+        </div>
+
+
+        <div class="form-group">
+            <label for="title">عنوان پست</label>
+            <input
+                type="text"
+                class="form-control w-50"
+                name="title"
+                id="title"
+                value="<%= post.title %>"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="status">وضعیت</label>
+            <select name="status" class="form-control w-25" id="status">
+             <option value="<%= post.status %>" selected><%= post.status === "public" ? "عمومی" : "خصوصی" %></option>
+                <option value="<%= post.status === "public" ? "private" : "public" %>"><%= post.status === "public" ? "خصوصی" : "عمومی" %></option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button
+                    class="btn btn-sm btn-outline-secondary"
+                    type="button"
+                    id="imageUpload"
+                >
+                    آپلود عکس
+                </button>
+            </div>
+            <div class="custom-file">
+                <input
+                    type="file"
+                    class="custom-file-input"
+                    id="selectedImage"
+                />
+                <label
+                    id="imageStatus"
+                    class="custom-file-label"
+                    for="selectedImage"
+                >
+                    عکس مورد نظر را انتخاب کنید
+                </label>
+            </div>
+        </div>
+
+        <div id="progressDiv" style="display: none">
+            <div class="progress">
+                <div
+                    id="progressBar"
+                    class="progress-bar progress-bar-striped progress-bar-animated"
+                    role="progressbar"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                ></div>
+            </div>
+        </div>
+
+        <div class="w-100 bg-light text-center">
+            <p id="uploadResult" class="overflow-auto">آدرس عکس آپلود شده</p>
+        </div>
+
+        <div class="form-group">
+            <h5>متن اصلی پست</h5>
+            <textarea name="body" class="form-control" id="body"><%= post.body %></textarea>
+         </div>
+
+        
+         <div class="row d-flex flex-row">
+            <div class="col-md-8"> 
+                
+                <button type="button" class="btn btn-success w-100  " data-toggle="modal" data-target="#basicExampleModal">
+                 ساخت پست جدید
+                     </button>
+            <!-- Modal -->
+            <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">تایید  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body rtl">
+                  آیا از ثبت پست جدید اطمینان دارید؟
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">خیر </button>
+                  <button class="btn btn-info " type="submit">ثبت</button>
+                </div>
+              </div>
+            </div>
+            </div>
+            
+            </div>
+
+            <div class="col-md-4"> <a href="/dashboard" class="btn btn-block btn-warning ">انصراف</a></div>
+         
+   
+        </div>
+        
+        </div>
+    </form>
+</div>

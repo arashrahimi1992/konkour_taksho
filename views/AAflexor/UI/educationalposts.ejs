@@ -1,0 +1,144 @@
+<%- include("../includes/header.ejs") %>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/taksho/posts">مقالات</a></li>
+          <li>کنکوری آموزشی</li>
+        </ol>
+        <h2> کنکوری آموزشی </h2>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+            <% if(posts.length > 0) { %> <% for(let post of posts) { %>
+            <article class="entry">
+
+              <div class="entry-img">
+                <img src="http://localhost:3000/uploads/thumbnails/<%= post.thumbnail %>" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html"><%= post.title %></a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person pr-1"></i> <a href="#" >گروه آموزشی کنکور تَکشو</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock pr-1"></i> <a href="#"> تاریخ :  <%=formatDate(post.createdAt) %>  </a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots pr-1"></i> <a href="#">کامنت ها</a></li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <p>
+                    <%-truncate(post.body,400) %>
+                </p>
+                <div class="read-more">
+                  <a href="/taksho/posts/<%= post._id %>">بیشتر ...</a>
+                </div>
+              </div>
+
+            </article><!-- End blog entry -->
+            <% } %> <% } else {%>
+              <div class="m-5 text-center">
+                <h1>هیچ پستی در پایگاه داده نیست</h1>
+            </div>
+            <% } %>
+
+            
+            <nav>
+              <ul class="pagination justify-content-center">
+                <% if(currentPage !== 1 && previousPage !== 1) {%>
+                    <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                <% } %>
+                <%if(hasPreviousPage) { %> 
+                    <li class="page-item"><a class="page-link" href="?page=<%= previousPage %>"><%= previousPage %></a></li>
+                <% } %>
+                <li class="page-item active"><a class="page-link" href="?page=<%= currentPage %>"><%= currentPage %></a></li>
+                <% if(hasNextPage) {%>
+                    <li class="page-item"><a class="page-link" href="?page=<%= nextPage %>"><%= nextPage %></a></li>
+                <% } %>
+                <% if(lastPage !== currentPage && nextPage !== lastPage) {%>
+                    <li class="page-item"><a class="page-link" href="?page=<%= lastPage %>"><%= lastPage %></a></li>
+                <% } %>
+              </ul>
+            </nav>
+
+          </div><!-- End blog entries list -->
+
+            <div class="col-lg-4">
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">جستجو</h3>
+              <div class="sidebar-item search-form">
+                <form action="/taksho/search" method="POST">
+                  <input type="text" name="search">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+
+              <h3 class="sidebar-title">دسته بندی  مقالات</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="/taksho/planningposts">برنامه ریزی <span>(<%= planning %>)</span></a></li>
+                  <li><a href="/taksho/Motivationposts">انگیزشی <span>(<%= Motivation %>)</span></a></li>
+                  <li><a href="/taksho/newsposts">خبری <span>(<%= news %>)</span></a></li>
+                  <li><a href="/taksho/educationalposts">آموزشی <span>(<%= educational %>)</span></a></li>
+                  <li><a href="/taksho/anyposts">غیره <span>(<%= any %>)</span></a></li>
+                 
+                </ul>
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">پست های اخیر</h3>
+              <div class="sidebar-item recent-posts">
+                <% if(recentposts.length > 0) { %> <% for(let post of recentposts) { %>
+                <div class="post-item clearfix">
+                  <img src="http://localhost:3000/uploads/thumbnails/<%= post.thumbnail %>" alt="">
+                  <h4><a href="/taksho/posts/<%= post._id %>"><%= post.title %></a></h4>
+                  <time datetime="2020-01-01"><%=formatDate(post.createdAt) %></time>
+                </div>
+                <% } %> <% } else {%>
+                  <div class="m-5 text-center">
+                    <h2 >هیچ پستی در این بخش نیست</h2>
+                </div>
+                <% } %>
+              </div><!-- End sidebar recent posts-->
+
+              <h3 class="sidebar-title">برچسب ها</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#">App</a></li>
+                  <li><a href="#">IT</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Mac</a></li>
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Office</a></li>
+                  <li><a href="#">Creative</a></li>
+                  <li><a href="#">Studio</a></li>
+                  <li><a href="#">Smart</a></li>
+                  <li><a href="#">Tips</a></li>
+                  <li><a href="#">Marketing</a></li>
+                </ul>
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+  <%- include("../includes/footer.ejs") %>

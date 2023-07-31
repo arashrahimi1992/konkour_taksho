@@ -1,0 +1,81 @@
+<%- include("../includes/header.ejs") %>
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/taksho/consultant">تیم ما</a></li>
+          <li>مشاورین کنکور تَکشو</li>
+        </ol>
+        <h2>مشاوران کنکور تَکشو</h2>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <div class="btn-group  d-flex align-items-center" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-light "><a href="/taksho/consultantT">مشاوران گروه تجربی</a></button>
+          <button type="button" class="btn btn-light"><a href="/taksho/consultantR">مشاوران گروه ریاضی</a></button>
+          <button type="button" class="btn btn-light"><a href="/taksho/consultantE">مشاوران گروه انسانی</a></button>
+          <button type="button" class="btn btn-light "><a href="/taksho/consultant">همه</a></button>
+      
+        </div>
+      </div>
+      <div class="col-4"></div>
+      </div>
+
+    <section class="inner-page pt-3">
+      <div class="container">
+  
+ <section id="doctors" class="doctors">
+    <div class="container">
+
+ 
+      <div class="row rtl">
+
+      
+        <% if(consultants.length > 0) { %> 
+              
+            <% for(let consultant of consultants) { %>
+        <div class="col-lg-6 mt-4 mb-4 mt-lg-0 ">
+          <div class="member d-flex align-items-start">
+            <div class="pic mr-4"><img src="/uploads/thumbnails/<%= consultant.consultantthumbnail %>" class="img-fluid" alt=""></div>
+            <div class="member-info ">
+              <h4><%= consultant.consultantName %> <%= consultant.consultantLastName %></h4>
+              <span><%= consultant.consultantUniversity %></span>
+              <p>کنکور <%= consultant.consultantYear %>  رتبه <%= consultant.consultantRank %> </p>
+
+              <p>مشاوره برای گروه تجربی
+               
+               </p>
+                  
+       <a href="/taksho/consultant/<%= consultant._id %>">اطلاعات بیشتر میخوای؟</a>
+            </div>
+          </div>
+        </div>
+
+        <% } %>
+        <% } %>
+  
+      
+
+      </div>
+
+    </div>
+  </section>
+      </div>
+    </section>
+
+  </main>
+  <!-- End #main -->
+
+
+<%- include("../includes/footer.ejs") %>
+
+
+
+

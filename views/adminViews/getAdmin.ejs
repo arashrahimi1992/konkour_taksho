@@ -1,0 +1,63 @@
+<h4 class="mt-2"><span class="badge badge-info">لیست ادمین ها</span></h4>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+           
+                <th scope="col">نام</th>
+                <th scope="col">نام خانوادگی</th>
+                <th scope="col">شماره تلفن</th>
+                <th scope="col">ایمیل</th>
+                <th scope="col">تایید</th>
+                <th scope="col">تاریخ ثبت نام</th>
+                <th scope="col">ویرایش دسترسی</th>
+                <th scope="col">حذف دسترسی</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% if(admins.length > 0) { %> 
+                    
+                    <% for(let admin of admins) { %>
+                        <tr>
+                            <th scope="row">-</th>
+                         
+                            <td><%= admin.adminName %></td>
+                            <td><%= admin.adminLastName %></td>
+                            <td><%= admin.adminPhone %></td>
+                            <td><%= admin.adminEmail %></td>
+
+                            <td>
+                              <span
+
+                              class="badge
+                                <%= admin.adminRole == true ? 'badge-success' : 'badge-warning' %>"  >  
+                                <%= admin.adminRole == true ? 'تایید شده' : 'تایید نشده' %>
+                            </span> 
+                            </td>
+
+                            <td>          
+                                <%= formatDate(admin.adminCreateAt) %>
+                            </td>
+                            <td>
+                                <a href="/dashboard/editAdmin/<%= admin._id %>" class="btn btn-sm btn-primary">ویرایش</a>
+                            </td>
+                            <td>
+                                <a href="/dashboard/deleteAdmin/<%= admin._id %>" class="btn btn-sm btn-danger">حذف</a>
+                            </td>
+                          </tr>
+                        
+                        <% } %>
+
+                        <% } %>
+                
+          
+             
+            </tbody>
+          </table>
+    </div>
+
+</div>

@@ -1,0 +1,118 @@
+<%- include("../includes/header.ejs") %>
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/taksho/products">محصولات</a></li>
+          <li>همه محصولات</li>
+        </ol>
+        <h2>همه محصولات</h2>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+<div class="row">
+<div class="col-4"></div>
+<div class="col-4">
+  <div class="btn-group  d-flex align-items-center" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-light "><a href="/taksho/availableProduct">محصولات موجود</a></button>
+    <button type="button" class="btn btn-light"><a href="#">محبوب ترین ها</a></button>
+    <button type="button" class="btn btn-light "><a href="/taksho/products">همه</a></button>
+
+  </div>
+</div>
+<div class="col-4"></div>
+</div>
+
+    
+    <section class="inner-page pt-3">
+      <div class="container">
+  
+ <section id="doctors" class="doctors">
+    <div class="container">
+
+
+ 
+ 
+      <div class="row rtl ">
+
+      
+        <% if(products.length > 0) { %> 
+              
+            <% for(let product of products) { %>
+        <div class="col-lg-6 mt-4 mb-4 mt-lg-0 ">
+          <div class="member d-flex align-items-start">
+            <div class="pic mr-4"><img src="/uploads/thumbnails/<%= product.productthumbnail %>" class="img-fluid" alt=""></div>
+            <div class="member-info ">
+              <h4><%= product.productName %></h4>
+              <p><%= product.productLittleTitle%> </p>
+              <p><% if(product.productAvailable == "0"){ %>
+                     <p class="badge badge-secondary" >محصول موجود نیست</p>
+                  <% } %>
+
+                  <% if(product.productAvailable == "1"){ %>
+                     <p class="badge badge-info" >محصول موجوداست </p>
+                   <% } %>
+           
+ 
+              </p>
+
+
+
+              <p style="color: chocolate;font-weight: 600;">قیمت محصول : <%= product.productPrice %> تومان </p>
+
+         <br/>
+         <br/>
+      <button class="btn btn-success" ><a href="#" style="font-weight: 900;font-size: larger;color: rgb(255, 255, 255);"> خرید محصول</a></button>  
+        <br/>
+        <br/>
+       <a  style="font-size:small;color: chocolate;" href="/taksho/products/<%= product._id %>">اطلاعات بیشتر در مورد محصول</a>
+     
+            </div>
+          </div>
+        </div>
+
+        <% } %>
+        <% } %>
+  
+      
+
+      </div>
+
+    </div>
+
+
+
+    
+  </section>
+      </div>
+    </section>
+
+  </main>
+  <!-- End #main -->
+
+  <nav>
+    <ul class="pagination justify-content-center">
+      <% if(currentPage !== 1 && previousPage !== 1) {%>
+          <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+      <% } %>
+      <%if(hasPreviousPage) { %> 
+          <li class="page-item"><a class="page-link" href="?page=<%= previousPage %>"><%= previousPage %></a></li>
+      <% } %>
+      <li class="page-item active"><a class="page-link" href="?page=<%= currentPage %>"><%= currentPage %></a></li>
+      <% if(hasNextPage) {%>
+          <li class="page-item"><a class="page-link" href="?page=<%= nextPage %>"><%= nextPage %></a></li>
+      <% } %>
+      <% if(lastPage !== currentPage && nextPage !== lastPage) {%>
+          <li class="page-item"><a class="page-link" href="?page=<%= lastPage %>"><%= lastPage %></a></li>
+      <% } %>
+    </ul>
+  </nav>
+<%- include("../includes/footer.ejs") %>
+
+
+
+

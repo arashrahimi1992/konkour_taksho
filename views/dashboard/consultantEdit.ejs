@@ -1,0 +1,143 @@
+
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+        <!-- Default form register -->
+<form class="text-center border border-light p-5" action="/dashboard/editConsultant/<%= consultant._id %>" method="POST" enctype="multipart/form-data"> 
+    <h3 class=" rtl mt-2 mb-2"><span class="mb-3  badge badge-info w-100"> ویرایش اطلاعات مشاور </span></h3>
+    <%- include("../includes/validationErrors.ejs") %>
+  
+    <div class="form-row mb-2">
+        <div class="col">
+            <!-- First name -->
+            <input type="text" id="consultantName"   value="<%= consultant.consultantName %>" name="consultantName" class="form-control" placeholder="*نام">
+        </div>
+        <div class="col">
+            <!-- Last name -->
+            <input type="text"  id="consultantLastName" value="<%= consultant.consultantLastName %>" name="consultantLastName" class="form-control" placeholder="*نام خانوادگی">
+        </div>
+    </div>
+
+    <!-- E-mail -->
+    <input type="email" id="consultantEmail" value="<%= consultant.consultantEmail %>"  name="consultantEmail" class="form-control mb-2" placeholder="*ایمیل ">
+
+    <!-- Password -->
+    <input type="password" id="consultantPassword"    name="consultantPassword" class="form-control" placeholder="*رمز عبور جدید را وارد کنید" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-2 ">
+         *نباید کمتر از 6 کاراکتر باشد
+    </small>
+
+    <!-- Password -->
+    <input type="password" id="consultantConfirmPassword"   name="consultantConfirmPassword" class="form-control" placeholder="*تکرار رمز عبور جدید را وارد کنید " aria-describedby="defaultRegisterFormPasswordHelpBlock">
+
+    <!-- Phone number -->
+    <input type="number" id="consultantRank" value="<%= consultant.consultantRank %>" name="consultantRank" class="form-control mt-2" placeholder="رتبه کنکور" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+     
+    <input type="text" id="consultantUniversity" name="consultantUniversity"  value="<%= consultant.consultantUniversity %>" class="form-control mt-2" placeholder="دانشگاه محل تحصیل" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+    <!-- Phone number -->
+    <input type="number" id="consultantPhone" name="consultantPhone" value="<%= consultant.consultantPhone %>" class="form-control mt-2" placeholder="تلفن"  aria-describedby="defaultRegisterFormPhoneHelpBlock">
+
+
+
+
+        <select class="browser-default custom-select mt-2" name="consultantZone">
+
+            <option disabled <%=  consultant.consultantZone == "0" ? " selected" : "" %>   value="0" >سهمیه کنکور</option>
+            <option <%=  consultant.consultantZone == "1" ? " selected" : "" %>   value="1" >منطقه 1</option>
+            <option <%=  consultant.consultantZone == "2" ? " selected" : "" %> value="2">منطقه 2</option>
+            <option <%=  consultant.consultantZone == "3" ? " selected" : "" %> value="3">منطقه 3</option>
+            <option <%=  consultant.consultantZone == "5" ? " selected" : "" %> value="5">5% ایثارگران</option>
+            <option <%=  consultant.consultantZone == "25" ? " selected" : "" %> value="25">25% شهدا و جانبازان</option>
+          </select>
+
+    <!-- <input type="text" id="consultantZone" name="consultantZone" class="form-control mt-3" placeholder="سهمیه منطقه" aria-describedby="defaultRegisterFormPhoneHelpBlock"> -->
+    
+    <input type="number"  id="consultantYear" name="consultantYear" value="<%= consultant.consultantYear %>" class="form-control mt-2" placeholder="سال کنکور" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+
+    <!-- <input type="text" id="consultantField" name="consultantField" class="form-control mt-3" placeholder="رشته دبیرستان" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+     -->
+    <select class="browser-default custom-select mt-2" name="consultantField">
+        <option disabled <%=  consultant.consultantCategory == "0" ? " selected" : "" %>   value="0" >رشته دبیرستان</option>
+        <option  <%=  consultant.consultantField === "1" ? " selected" : "" %>  value="1">ریاضی</option>
+        <option  <%=  consultant.consultantField === "2" ? " selected" : "" %> value="2">تجربی</option>
+        <option  <%=  consultant.consultantField === "3" ? " selected" : "" %> value="3">انسانی</option>
+    
+      </select>
+
+
+
+    <textarea  id="consultantContent" name="consultantContent"  class="form-control mt-2" aria-describedby="defaultRegisterFormPhoneHelpBlock"><%= consultant.consultantContent %></textarea>
+
+    <!-- <input type="text" id="consultantCategory" name="consultantCategory" class="form-control mt-3" placeholder="حوزه ی مشاوره" aria-describedby="defaultRegisterFormPhoneHelpBlock"> -->
+
+    <select class="browser-default custom-select mt-2" name="consultantCategory">
+
+        <option  disabled <%=  consultant.consultantCategory == "0" ? " selected" : "" %>   value="0">گروه مشاوره</option>
+        <option  <%=  consultant.consultantCategory === "1" ? " selected" : "" %> value="1">ریاضی</option>
+        <option  <%=  consultant.consultantCategory === "2" ? " selected" : "" %> value="2">تجربی</option>
+        <option  <%=  consultant.consultantCategory === "3" ? " selected" : "" %> value="3">انسانی</option>
+        <option  <%=  consultant.consultantCategory === "12" ? " selected" : "" %> value="12">ریاضی و تجربی</option>
+        <option  <%=  consultant.consultantCategory === "5" ? " selected" : "" %> value="5">همه</option>
+      </select>
+
+
+    <!-- Sign up button -->
+
+
+    <div class="input-group mt-3 mb-3">
+      <input
+      
+          type="file"
+          class="custom-file-input"
+          name="thumbnail"
+          id="selectedThumbnail"
+          aria-describedby="inputGroupFileAddon03" />
+      <label
+          id="thumbStatus"
+          class="custom-file-label"
+          for="inputGroupFile03"
+          >عکس مورد نظر را انتخاب کنید</label>
+    </div>
+
+
+    
+<button type="button" class="btn btn-success w-50 mt-3 " data-toggle="modal" data-target="#basicExampleModal">
+        ویرایش  مشخصات مشاور
+</button>
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">تایید ویرایش </h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body rtl">
+      آیا از ویرایش مشخصات مشاور اطمینان دارید؟
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">خیر </button>
+      <button class="btn btn-info " type="submit">ویرایش</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+</form>
+<!-- Default form register -->
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+
+
+<br/>
